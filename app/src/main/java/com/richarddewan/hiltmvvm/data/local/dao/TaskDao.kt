@@ -8,13 +8,16 @@ import com.richarddewan.hiltmvvm.data.local.entity.TaskLocalEntity
 
 
 @Dao
-interface PersonDao {
+interface TaskDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(task: TaskLocalEntity): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMany(persons: List<TaskLocalEntity>): List<Long>
+    suspend fun insertMany(tasks: List<TaskLocalEntity>): List<Long>
 
-    @Query("SELECT * FROM persons")
-    suspend fun getPersons(): List<TaskLocalEntity>
+    @Query("SELECT * FROM tasks")
+    suspend fun getTasks(): List<TaskLocalEntity>
+
+
 }

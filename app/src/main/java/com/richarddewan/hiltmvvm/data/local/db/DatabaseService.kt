@@ -2,17 +2,12 @@ package com.richarddewan.hiltmvvm.data.local.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.richarddewan.hiltmvvm.data.local.dao.PersonDao
-import com.richarddewan.hiltmvvm.data.local.entity.PersonLocalEntity
+import com.richarddewan.hiltmvvm.data.local.dao.TaskDao
+import com.richarddewan.hiltmvvm.data.local.entity.TaskLocalEntity
 
-@Database(
-    entities = [
-        PersonLocalEntity::class
-    ], version = 1,
-    exportSchema = false
-)
-abstract class DatabaseService : RoomDatabase(){
+@Database(entities = [TaskLocalEntity::class],version = 1, exportSchema = false)
+abstract  class DatabaseService: RoomDatabase() {
 
-    abstract fun personDao(): PersonDao
+    abstract fun taskDao(): TaskDao
 
 }
